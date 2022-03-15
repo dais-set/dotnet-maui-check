@@ -12,19 +12,19 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageId>Redth.Net.Maui.Check</PackageId>
+    <PackageId>DAIS.Net.Maui.Check</PackageId>
     <Title>.NET MAUI Check Tool</Title>
     <Version>$(PackageVersion)</Version>
-    <Authors>Redth</Authors>
-    <Owners>Redth</Owners>
-    <summary>A dotnet tool for helping set up your .NET MAUI environment</summary>
+    <Authors>Redth,DAIS</Authors>
+    <Owners>DAIS</Owners>
+    <summary>A dotnet tool for helping set up your .NET MAUI environment (branch to set preview.13)</summary>
     <PackageDescription>
   A dotnet tool for helping set up your .NET MAUI environment
     </PackageDescription>
     <Copyright>Copyright © Redth</Copyright>
-    <PackageProjectUrl>https://github.com/redth/dotnet-maui-check</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/dais-set/dotnet-maui-check</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <RepositoryUrl>https://github.com/redth/dotnet-maui-check</RepositoryUrl>
+    <RepositoryUrl>https://github.com/dais-set/dotnet-maui-check</RepositoryUrl>
     <AssemblyFileVersion>$(PackageVersion)</AssemblyFileVersion>
     <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
@@ -35,6 +35,12 @@
   <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true' Or '$(TF_BUILD)' == 'true'">
     <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="artifacts\**" />
+    <EmbeddedResource Remove="artifacts\**" />
+    <None Remove="artifacts\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Win32.Registry" Version="4.7.0" />

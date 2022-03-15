@@ -19,7 +19,7 @@ namespace DotNetCheck
 	public class ToolInfo
 	{
 		public const string ToolName = ".NET MAUI Check";
-		public const string ToolPackageId = "Redth.Net.Maui.Check";
+		public const string ToolPackageId = "DAIS.Net.Maui.Check";
 		public const string ToolCommand = "maui-check";
 
 		public static async Task<Manifest.Manifest> LoadManifest(string fileOrUrl, ManifestChannel channel)

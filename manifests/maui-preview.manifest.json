@@ -1,6 +1,6 @@
 {
   "check": {
-    "toolVersion": "0.10.0",
+    "toolVersion": "0.10.13",
     "variables": {
       "OPENJDK_VERSION": "11.0.10.9"
     },
@@ -12,13 +12,13 @@
           {
             "name": "MAUI_VERSION",
             "packageId": "Microsoft.NET.Sdk.Maui.Manifest-6.0.200",
-            "packageVersion": "6.0.200-preview.12.*"
+            "packageVersion": "6.0.200-preview.13.*"
           }
         ]
       },
       {
         "$type": "DotNetCheck.Manifest.XmlVariableMapper, MauiCheck",
-        "sourceUri": "https://raw.githubusercontent.com/dotnet/maui/release/6.0.2xx-preview12/eng/Versions.props",
+        "sourceUri": "https://raw.githubusercontent.com/dotnet/maui/release/6.0.2xx-preview13/eng/Versions.props",
         "mappings": [
           {
             "name": "DOTNET_SDK_VERSION",

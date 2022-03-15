@@ -1,6 +1,6 @@
 {
   "check": {
-    "toolVersion": "0.10.0",
+    "toolVersion": "0.10.13",
     "variables": {
       "OPENJDK_VERSION": "11.0.10.9"
     },
