@@ -1,6 +1,9 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Reflection;
+using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
@@ -8,9 +11,20 @@ namespace DotNetCheck.Manifest
 {
 	public partial class Manifest
 	{
-		public const string DefaultManifestUrl = "https://aka.ms/dotnet-maui-check-manifest";
-		public const string PreviewManifestUrl = "https://aka.ms/dotnet-maui-check-manifest-preview";
-		public const string MainManifestUrl = "https://aka.ms/dotnet-maui-check-manifest-main";
+		internal const string DefaultManifestUrl = "maui.manifest.json";
+		internal const string PreviewManifestUrl = "maui-previlew.manifest.json";
+		internal const string MainManifestUrl = "maui-main.manifest.json";
+
+		public static Task<Manifest> FileFromResource(string resource)
+		{
+			var resourceStream = Assembly.GetAssembly(typeof(FilePermissions)).GetManifestResourceStream(resource);
+
+			using(var reader = new StreamReader(resourceStream, Encoding.UTF8))
+			{
+				var file = reader.ReadToEnd();
+				return FromJson(file);
+			}
+		}
 
 		public static Task<Manifest> FromFileOrUrl(string fileOrUrl)
 		{

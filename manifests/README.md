@@ -6,16 +6,17 @@
   
   
   ### Default
-  This should align with the current MAUI stable version available:
+  Embedded resource, to align with the current MAUI stable version available:
   - maui.manifest.json
   - https://aka.ms/dotnet-maui-check-manifest
   
   ### Preview
-  This should align with the current MAUI preview version available:
+  Embedded resource, to align with MAUI preview 13 version available:
   - maui-preview.manifest.json
-  - https://aka.ms/dotnet-maui-check-manifest-preview
+  - https://aka.ms/dotnet-maui-check-manifest-preview (currently it's old, preview 12)
+  - https://raw.githubusercontent.com/dotnet/maui/release/6.0.2xx-preview13/eng/Versions.props
   
   ### Main
-  This should align with the current MAUI main branch version available and will change often:
+  Embedded resource, to align with the current MAUI main branch version available and will change often:
   - maui-main.manifest.json
   - https://aka.ms/dotnet-maui-check-manifest-main

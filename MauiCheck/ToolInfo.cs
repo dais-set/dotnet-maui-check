@@ -18,9 +18,9 @@ namespace DotNetCheck
 
 	public class ToolInfo
 	{
-		public const string ToolName = ".NET MAUI Check";
+		public const string ToolName = ".NET MAUI Check (DAIS)";
 		public const string ToolPackageId = "DAIS.Net.Maui.Check";
-		public const string ToolCommand = "maui-check";
+		public const string ToolCommand = "maui-check13";
 
 		public static async Task<Manifest.Manifest> LoadManifest(string fileOrUrl, ManifestChannel channel)
 		{
@@ -32,6 +32,9 @@ namespace DotNetCheck
 					ManifestChannel.Default => Manifest.Manifest.DefaultManifestUrl,
 					_ => Manifest.Manifest.DefaultManifestUrl
 				};
+
+			if(fileOrUrl == null)
+				return await Manifest.Manifest.FileFromResource(f);
 
 			Util.Log($"Loading Manifest from: {f}");
 

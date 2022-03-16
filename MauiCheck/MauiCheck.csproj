@@ -4,7 +4,7 @@
     <OutputType>Exe</OutputType>
     <TargetFrameworks>netcoreapp3.1;net5.0;net6.0</TargetFrameworks>
     <PackAsTool>true</PackAsTool>
-    <ToolCommandName>maui-check</ToolCommandName>
+    <ToolCommandName>maui-check13</ToolCommandName>
     <PackageOutputPath>./artifacts</PackageOutputPath>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <PackAsToolShimRuntimeIdentifiers>win-x64;win-x86;osx-x64</PackAsToolShimRuntimeIdentifiers>
@@ -14,6 +14,7 @@
   <PropertyGroup>
     <PackageId>DAIS.Net.Maui.Check</PackageId>
     <Title>.NET MAUI Check Tool</Title>
+    <PackageVersion Condition=" '$(PackageVersion)' == '' ">0.10.13.0</PackageVersion>
     <Version>$(PackageVersion)</Version>
     <Authors>Redth,DAIS</Authors>
     <Owners>DAIS</Owners>
@@ -26,6 +27,8 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/dais-set/dotnet-maui-check</RepositoryUrl>
     <AssemblyFileVersion>$(PackageVersion)</AssemblyFileVersion>
+	<AssemblyVersion>$(PackageVersion)</AssemblyVersion>
+	<FileVersion>$(PackageVersion)</FileVersion>
     <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
@@ -40,6 +43,18 @@
     <Compile Remove="artifacts\**" />
     <EmbeddedResource Remove="artifacts\**" />
     <None Remove="artifacts\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="maui-main.manifest.json" />
+    <None Remove="maui-preview.manifest.json" />
+    <None Remove="maui.manifest.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="maui-main.manifest.json" />
+    <EmbeddedResource Include="maui-preview.manifest.json" />
+    <EmbeddedResource Include="maui.manifest.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -104,7 +119,7 @@
   <Target Name="AuthenticodeSignBeforeBack" BeforeTargets="GenerateNuspec" Condition="'$(SigningCertificatePfxFile)' != ''">
     <ItemGroup>
       <FilesToSign Include="@(_PackageFiles)" Condition=" '%(_PackageFiles.Filename)%(_PackageFiles.Extension)' == 'MauiCheck.dll' " />
-      <FilesToSign Include="@(_PackageFiles)" Condition=" '%(_PackageFiles.Filename)%(_PackageFiles.Extension)' == 'maui-check.exe' " />
+      <FilesToSign Include="@(_PackageFiles)" Condition=" '%(_PackageFiles.Filename)%(_PackageFiles.Extension)' == 'maui-check13.exe' " />
     </ItemGroup>
     <Exec Command="&quot;$(SignToolPath)&quot; sign /v /f $(SigningCertificatePfxFile) /fd sha256 /tr $(SigningTimestampServer) %(FilesToSign.FullPath)" />
   </Target>
